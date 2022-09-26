@@ -49,24 +49,24 @@ int main(void)
 #endif /* I2C_PROT_EN == 1 */
 
 	uart_init(PIN_UART_TX);
-	blink_init(PIN_LED);
-#if (SPIM_PROT_EN == 1)
+	//blink_init(PIN_LED);
+#if SPIM_PROT_EN == 1
   int err = spi_init();
 #endif /* SPIM_PROT_EN == 1 */
 #if I2C_PROT_EN == 1
-  //int err = i2c_init();
+  int err = i2c_init();
 #endif /* I2C_PROT_EN == 1 */
   printf("Hello..\r\n");
 
 while (1) {
 		nrf_delay_ms(1000);
 #if I2C_PROT_EN == 1    
-    i2c_write(0x0002, count);
-    data = i2c_read(0x0002);
+    //i2c_write(0x0002, count);
+    data = i2c_read(0x0001);
     data; // to get rid of set but unused warning
     count++;
 #endif /* I2C_PROT_EN == 1 */
-#if (SPIM_PROT_EN == 1)
+#if SPIM_PROT_EN == 1
     err = spi_test();
 #endif /* SPIM_PROT_EN == 1 */
 		//printf("Hello..\r\n");
