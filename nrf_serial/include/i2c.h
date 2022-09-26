@@ -1,7 +1,7 @@
 #ifndef __I2CMI_H_
 #define __I2CMI_H_
 
-#define I2C_PROT_EN  0
+#define I2C_PROT_EN  1
 
 #include<stdint.h>
 #include "nrf52840.h"
@@ -12,7 +12,7 @@
 #include "uart.h"
 
 int i2c_init(void);
-void i2c_write(uint8_t addr, uint8_t data);
-uint8_t i2c_read(uint8_t addr);
+void i2c_write(uint16_t addr, uint8_t data);
+uint8_t i2c_read(uint16_t addr);
 
 #endif /* __I2CMI_H_ */

@@ -2,7 +2,7 @@
 #ifndef __SPIMI_H_
 #define __SPIMI_H_
 
-#define SPIM_PROT_EN 1
+#define SPIM_PROT_EN 0
 
 #include<stdint.h>
 #include "nrf52840.h"

@@ -25,7 +25,7 @@ int i2c_init(void)
 
 }
 
-void i2c_write(uint8_t addr, uint8_t data)
+void i2c_write(uint16_t addr, uint8_t data)
 {
   uint8_t tx_buf[2];
   NRF_TWIM0->SHORTS = TWIM_SHORTS_LASTTX_STOP_Msk;
@@ -40,24 +40,38 @@ void i2c_write(uint8_t addr, uint8_t data)
   while (NRF_TWIM0->EVENTS_STOPPED == 0);
 }
 
-uint8_t i2c_read(uint8_t addr)
-{
-  uint8_t tx_buf[1];
-  uint8_t rx_buf[1] = {0};
-  NRF_TWIM0->SHORTS = TWIM_SHORTS_LASTTX_STARTRX_Msk | TWIM_SHORTS_LASTRX_STOP_Msk;
+ uint8_t i2c_read(uint16_t addr) {
 
-  tx_buf[0] = addr;
-  NRF_TWIM0->TXD.MAXCNT = sizeof(tx_buf);
-  NRF_TWIM0->TXD.PTR = (uint32_t)&tx_buf[0];
+   uint8_t tx_buf[2];
+  uint8_t rx_buf;
 
-  NRF_TWIM0->RXD.MAXCNT = 1;
-  NRF_TWIM0->RXD.PTR = (uint32_t)&rx_buf[0];
+  /* High address byte */
+  tx_buf[0] = (addr >> 8) & 0xFF;
+  /* Low address byte */
+  tx_buf[1] = addr & 0xFF;
+
+  NRF_TWIM0->SHORTS = TWIM_SHORTS_LASTTX_STOP_Msk;
+
+  NRF_TWIM0->TXD.MAXCNT = 2;
+  NRF_TWIM0->TXD.PTR = (uint32_t)tx_buf;
+
+  NRF_TWIM0->RXD.MAXCNT = 0;
 
   NRF_TWIM0->EVENTS_STOPPED = 0;
   NRF_TWIM0->TASKS_STARTTX = 1;
   while (NRF_TWIM0->EVENTS_STOPPED == 0);
 
-  return rx_buf[0];
+  NRF_TWIM0->SHORTS = TWIM_SHORTS_LASTRX_STOP_Msk;
+
+  NRF_TWIM0->RXD.MAXCNT = 1;
+  NRF_TWIM0->RXD.PTR = (uint32_t)&rx_buf;
+
+  NRF_TWIM0->EVENTS_STOPPED = 0;
+  NRF_TWIM0->TASKS_STARTRX = 1;
+  while (NRF_TWIM0->EVENTS_STOPPED == 0);
+  
+  return rx_buf;
+
 }
 
 #endif /* I2C_PROT_EN == 1 */
