@@ -61,10 +61,10 @@ int main(void)
 while (1) {
 		nrf_delay_ms(1000);
 #if I2C_PROT_EN == 1    
-  //  i2c_write(0x24, count);
-  //  data = i2c_read(0x24);
-  //  data; // to get rid of set but unused warning
-  //  count++;
+    i2c_write(0x0002, count);
+    data = i2c_read(0x0002);
+    data; // to get rid of set but unused warning
+    count++;
 #endif /* I2C_PROT_EN == 1 */
 #if (SPIM_PROT_EN == 1)
     err = spi_test();
