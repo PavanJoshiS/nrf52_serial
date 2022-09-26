@@ -1,0 +1,321 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+Makefile:8: *** SDK_ROOT is not set.  Stop.
+
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri Jul 29 23:24:34 2022
+
+# Variables
+
+# environment
+SYSTEMDRIVE = C:
+# environment
+JAVA_HOME = C:\Program Files\Android\Android Studio\jre\
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 5)
+LINKER_SCRIPT := linker.ld
+# makefile (from 'Makefile', line 3)
+OUTPUT_DIR := _build
+# environment
+CMAKE_PREFIX_PATH = C:\Qt\6.2.3\msvc2019_64
+# environment
+USERPROFILE = C:\Users\acer
+# environment
+VBOX_MSI_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+# environment
+LOCALAPPDATA = C:\Users\acer\AppData\Local
+# makefile (from 'Makefile', line 4)
+SRC_DIR := src
+# environment
+VSCODE_CWD = C:\Users\acer\AppData\Local\Programs\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# environment
+XILINX = C:\NIFPGA\programs\Xilinx14_7\ISE
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_15240_GPQKSCSTXEOOHDJZ
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# environment
+SW_SIM_HYDRA = C:\Program Files\Common Files\SolidWorks Shared\Simulation Worker Agent\
+# environment
+IVIROOTDIR64 = C:\Program Files\IVI Foundation\IVI\
+# environment
+ICEMCFD_SYSDIR = win64_amd
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\acer\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\acer\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\acer\OneDrive
+# makefile
+CURDIR := c:/Users/acer/nrf_vs/nrf52-vscode
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 15240
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# automatic
+*F = $(notdir $*)
+# environment
+SW_SIM_TEMP = C:\ProgramData\SOLIDWORKS\SW_net_sim_temp\
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# makefile (from 'Makefile', line 2)
+PROJ_DIR := ./
+# environment
+P_SCHEMA = C:\Program Files\ANSYS Inc\v171\AISOL\CADIntegration\Parasolid\PSchema
+# environment
+VSCODE_NLS_CONFIG = {"locale":"de","availableLanguages":{"*":"de"},"_languagePackId":"ac49ed8871898f6ccc91afa1076d75a0.de","_translationsConfigFile":"C:\\Users\\acer\\AppData\\Roaming\\Code\\clp\\ac49ed8871898f6ccc91afa1076d75a0.de\\tcf.json","_cacheRoot":"C:\\Users\\acer\\AppData\\Roaming\\Code\\clp\\ac49ed8871898f6ccc91afa1076d75a0.de","_resolvedLanguagePackCoreLocation":"C:\\Users\\acer\\AppData\\Roaming\\Code\\clp\\ac49ed8871898f6ccc91afa1076d75a0.de\\3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"C:\\Users\\acer\\AppData\\Roaming\\Code\\clp\\ac49ed8871898f6ccc91afa1076d75a0.de\\corrupted.info","_languagePackSupport":true}
+# environment
+ONEDRIVECONSUMER = C:\Users\acer\OneDrive
+# default
+MAKE_HOST := Windows32
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := sh.exe
+# environment
+HOMEPATH = \Users\acer
+# environment
+PLATFORMIO_CALLER = vscode
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+MOSQUITTO_DIR = C:\Program Files\mosquitto
+# environment
+PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\MATLAB\R2020b\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\AndroidStudioProjects\flutter;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Users\acer\esp-idf\tools;C:\Program Files (x86)\GNU Tools ARM Embedded\4.8 2013q4\bin;C:\Program Files\CMake\bin;C:\Program Files (x86)\National Instruments\Shared\LabVIEW CLI;C:\Program Files (x86)\Nordic Semiconductor\nrf-command-line-tools\bin\;C:\Program Files (x86)\GNU Arm Embedded Toolchain\102021\bin;C:\Program Files\Nordic Semiconductor\nrf-command-line-tools\bin\;C:\Program Files (x86)\DeviceDownload\nRF5_SDK_17.1.0_ddde560\nRF5_SDK_17.1.0_ddde560;C:\cygwin64\bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\acer\AndroidStudioProjects\flutter_github\bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\.dotnet\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Users\acer\esp-idf\tools;
+# environment
+COMPUTERNAME = DESKTOP-299CBT4
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+SW_SIM_MPIT = INTELMPI
+# environment
+NIEXTCCOMPILERSUPP = C:\Program Files (x86)\National Instruments\Shared\ExternalCompilerSupport\C\
+# environment
+PROMPT = $P$G
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132965140123781445
+# environment
+VXIPNPPATH64 = C:\Program Files\IVI Foundation\VISA\
+# makefile (from 'Makefile', line 1)
+PREFIX := ""arm-none-eabi-
+# environment
+LOGONSERVER = \\DESKTOP-299CBT4
+# environment
+USERNAME = acer
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+ANS_OLD_ATTACH = 1
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+ANSYS171_DIR = C:\Program Files\ANSYS Inc\v171\ANSYS
+# environment
+NO_PROXY = 127.0.0.1
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = DESKTOP-299CBT4
+# environment
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# environment
+ANSYS_SYSDIR32 = win32
+# environment
+PLATFORMIO_PATH = C:\Users\acer\.platformio\python3;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\MATLAB\R2020b\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\AndroidStudioProjects\flutter;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Users\acer\esp-idf\tools;C:\Program Files (x86)\GNU Tools ARM Embedded\4.8 2013q4\bin;C:\Program Files\CMake\bin;C:\Program Files (x86)\National Instruments\Shared\LabVIEW CLI;C:\Program Files (x86)\Nordic Semiconductor\nrf-command-line-tools\bin\;C:\Program Files (x86)\GNU Arm Embedded Toolchain\102021\bin;C:\Program Files\Nordic Semiconductor\nrf-command-line-tools\bin\;C:\Program Files (x86)\DeviceDownload\nRF5_SDK_17.1.0_ddde560\nRF5_SDK_17.1.0_ddde560;C:\cygwin64\bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\acer\AndroidStudioProjects\flutter_github\bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\.dotnet\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Users\acer\esp-idf\tools;;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\MATLAB\R2020b\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\AndroidStudioProjects\flutter;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\IVI Foundation\IVI\bin;C:\Program Files\IVI Foundation\IVI\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Users\acer\esp-idf\tools;C:\Program Files (x86)\GNU Tools ARM Embedded\4.8 2013q4\bin;C:\Program Files\CMake\bin;C:\Program Files (x86)\National Instruments\Shared\LabVIEW CLI;C:\Program Files (x86)\Nordic Semiconductor\nrf-command-line-tools\bin\;C:\Program Files (x86)\GNU Arm Embedded Toolchain\102021\bin;C:\Program Files\Nordic Semiconductor\nrf-command-line-tools\bin\;C:\Program Files (x86)\DeviceDownload\nRF5_SDK_17.1.0_ddde560\nRF5_SDK_17.1.0_ddde560;C:\cygwin64\bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\acer\AndroidStudioProjects\flutter_github\bin;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;C:\Users\acer\.dotnet\tools;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin;C:\Users\acer\esp-idf\tools;
+# makefile
+.DEFAULT_GOAL := 
+# environment
+AWP_ROOT171 = C:\Program Files\ANSYS Inc\v171
+# environment
+CADOE_LIBDIR171 = C:\Program Files\ANSYS Inc\v171\CommonFiles\Language\en-us
+# environment
+ANSYS_SYSDIR = winx64
+# environment
+CMAKE_EXPORT_COMPILE_COMMANDS = ON
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+LSTC_LICENSE = ANSYS
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-299CBT4
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+PUBLIC = C:\Users\Public
+# environment
+AWP_LOCALE171 = en-us
+# environment
+APPDATA = C:\Users\acer\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+WIRESHARK_BASE_DIR = C:\Development
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+PLATFORMIO_IDE = 2.5.1
+# environment
+HOME = C:\Users\acer
+# environment
+VXIPNPPATH = C:\Program Files (x86)\IVI Foundation\VISA\
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\acer\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\929c9db10fbad29ade8ce551d35e9392-1.69.2-main-sock
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+ICEMCFD_ROOT171 = C:\Program Files\ANSYS Inc\v171\icemcfd
+# environment
+PROCESSOR_REVISION = 9e0a
+# environment
+IVIROOTDIR32 = C:\Program Files (x86)\IVI Foundation\IVI\
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+# variable set hash-table stats:
+# Load=126/1024=12%, Rehash=0, Collisions=10/137=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (key c:/Users/acer/nrf_vs/nrf52-vscode, mtime 1658871399): 12 files, no impossibilities.
+
+# 12 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+Makefile:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=4/1024=0%, Rehash=0, Collisions=0/5=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 15 / storage = 114 B / avg = 7 B
+# current buf: size = 8174 B / used = 114 B / count = 15 / avg = 7 B
+
+# strcache performance: lookups = 19 / hit rate = 21%
+# hash-table stats:
+# Load=15/8192=0%, Rehash=0, Collisions=0/19=0%
+# Finished Make data base on Fri Jul 29 23:24:34 2022
+
+ 
