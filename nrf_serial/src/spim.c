@@ -7,16 +7,9 @@
 #define NRFX_SPIM_MISO_PIN 29
 #define NRFX_SPIM_SS_PIN   31
 
-void assign_value_to_reg (uint32_t address,uint32_t value )
-{
-        volatile uint32_t *point = (uint32_t *)address;
-        *point = value;
-}
-
 int spi_init()
 {
 	NRF_SPIM3->PSEL.CSN = NRFX_SPIM_SS_PIN;
-    //(NRF_SPIM3_BASE + 0x514) = 
 	NRF_SPIM3->PSEL.SCK = NRFX_SPIM_SCK_PIN;
 	NRF_SPIM3->PSEL.MOSI = NRFX_SPIM_MOSI_PIN;
 	NRF_SPIM3->PSEL.MISO = NRFX_SPIM_MISO_PIN;

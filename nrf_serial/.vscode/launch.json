@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "jlink",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/_build/build.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "device": "nRF52",
+            "interface": "swd",
+            "preLaunchTask": "build",
+            "svdFile": "${config:sdkRoot}/modules/nrfx/mdk/nrf52840.svd",
+            "serverpath": "${config:jLinkServerPath}",
+            "armToolchainPath": "${config:gnuInstallRoot}",
+        },
+    ]
+}

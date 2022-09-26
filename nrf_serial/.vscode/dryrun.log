@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/acer/nrf_vs/nrf52-vscode'
+make: Leaving directory 'c:/Users/acer/nrf_vs/nrf52-vscode'
+ 
+Makefile:8: *** SDK_ROOT is not set.  Stop.
+
