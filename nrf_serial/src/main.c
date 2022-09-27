@@ -26,7 +26,7 @@ int blink_init(unsigned int pin_led)
 	NRF_PPI->CH[0].TEP = (uint32_t)&NRF_RTC0->TASKS_CLEAR;
 
 	NRF_GPIOTE->CONFIG[1] = (GPIOTE_CONFIG_MODE_Task << 0) | (pin_led << 8) |
-				(GPIOTE_CONFIG_POLARITY_Toggle << 16) | (GPIOTE_CONFIG_OUTINIT_Low << 20);
+	(GPIOTE_CONFIG_POLARITY_Toggle << 16) | (GPIOTE_CONFIG_OUTINIT_Low << 20);
 
 	NRF_PPI->CH[1].EEP = (uint32_t)&NRF_RTC0->EVENTS_COMPARE[0];
 	NRF_PPI->CH[1].TEP = (uint32_t)&NRF_GPIOTE->TASKS_OUT[1];
@@ -44,37 +44,37 @@ int blink_init(unsigned int pin_led)
 int main(void)
 {
 #if I2C_PROT_EN == 1
-  int count= 0;
-  volatile uint8_t data;
+	int count= 0;
+	volatile uint8_t data;
 #endif /* I2C_PROT_EN == 1 */
 
 	uart_init(PIN_UART_TX);
 	//blink_init(PIN_LED);
 #if SPIM_PROT_EN == 1
-  int err = spi_init();
+	int err = spi_init();
 #endif /* SPIM_PROT_EN == 1 */
 #if I2C_PROT_EN == 1
-  int err = i2c_init();
+	int err = i2c_init();
 #endif /* I2C_PROT_EN == 1 */
-  printf("Hello..\r\n");
-  // 16 bit sensor number
-  data = i2c_read(0x0001);
-  data; // to get rid of set but unused warning
-  // set mode_select 
-  i2c_write(0x0100,0x03);
-  // command update
-  i2c_write(0x0104,0x00);
-while (1) {
+	printf("Hello..\r\n");
+	// 16 bit sensor number
+	//data = i2c_read(0x0001);
+	//data; // to get rid of set but unused warning
+	// set mode_select 
+	i2c_write(0x0100,0x03);
+	// command update
+	i2c_write(0x0104,0x00);
+	while (1) {
 		nrf_delay_ms(1000);
 #if I2C_PROT_EN == 1    
-    //i2c_write(0x0002, count);
-	// get mode select
-	data = i2c_read(0x0100);
-	data;
-    count++;
+		//i2c_write(0x0002, count);
+		// get mode select
+		data = i2c_read(0x0100);
+		data;
+		count++;
 #endif /* I2C_PROT_EN == 1 */
 #if SPIM_PROT_EN == 1
-    err = spi_test();
+		err = spi_test();
 #endif /* SPIM_PROT_EN == 1 */
 		//printf("Hello..\r\n");
 	}
