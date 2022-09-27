@@ -57,13 +57,20 @@ int main(void)
   int err = i2c_init();
 #endif /* I2C_PROT_EN == 1 */
   printf("Hello..\r\n");
-
+  // 16 bit sensor number
+  data = i2c_read(0x0001);
+  data; // to get rid of set but unused warning
+  // set mode_select 
+  i2c_write(0x0100,0x03);
+  // command update
+  i2c_write(0x0104,0x00);
 while (1) {
 		nrf_delay_ms(1000);
 #if I2C_PROT_EN == 1    
     //i2c_write(0x0002, count);
-    data = i2c_read(0x0001);
-    data; // to get rid of set but unused warning
+	// get mode select
+	data = i2c_read(0x0100);
+	data;
     count++;
 #endif /* I2C_PROT_EN == 1 */
 #if SPIM_PROT_EN == 1
