@@ -27,13 +27,16 @@ int i2c_init(void)
 
 void i2c_write(uint16_t addr, uint8_t data)
 {
-  uint8_t tx_buf[2];
+  uint8_t tx_buf[3];
+  /* High address byte */
+  tx_buf[0] = (addr >> 8) & 0xFF;
+  /* Low address byte */
+  tx_buf[1] = addr & 0xFF;
+  tx_buf[2] = data;
   NRF_TWIM0->SHORTS = TWIM_SHORTS_LASTTX_STOP_Msk;
 
-  tx_buf[0] = addr;
-  tx_buf[1] = data;
   NRF_TWIM0->TXD.MAXCNT = sizeof(tx_buf);
-  NRF_TWIM0->TXD.PTR = (uint32_t)&tx_buf[0];
+  NRF_TWIM0->TXD.PTR = (uint32_t)tx_buf;
 
   NRF_TWIM0->EVENTS_STOPPED = 0;
   NRF_TWIM0->TASKS_STARTTX = 1;
