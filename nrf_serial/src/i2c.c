@@ -32,6 +32,7 @@ void i2c_write(uint16_t addr, uint8_t data)
 	tx_buf[0] = (addr >> 8) & 0xFF;
 	/* Low address byte */
 	tx_buf[1] = addr & 0xFF;
+	// data
 	tx_buf[2] = data;
 	NRF_TWIM0->SHORTS = TWIM_SHORTS_LASTTX_STOP_Msk;
 
