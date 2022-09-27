@@ -48,8 +48,8 @@ int main(void)
   volatile uint8_t data;
 #endif /* I2C_PROT_EN == 1 */
 
-	uart_init(PIN_UART_TX);
-	//blink_init(PIN_LED);
+ uart_init(PIN_UART_TX);
+ //blink_init(PIN_LED);
 #if SPIM_PROT_EN == 1
   int err = spi_init();
 #endif /* SPIM_PROT_EN == 1 */
@@ -58,26 +58,26 @@ int main(void)
 #endif /* I2C_PROT_EN == 1 */
   printf("Hello..\r\n");
   // 16 bit sensor number
-  data = i2c_read(0x0001);
-  data; // to get rid of set but unused warning
+  //data = i2c_read(0x0001);
+  //data; // to get rid of set but unused warning
   // set mode_select 
   i2c_write(0x0100,0x03);
   // command update
   i2c_write(0x0104,0x00);
 while (1) {
-		nrf_delay_ms(1000);
-#if I2C_PROT_EN == 1    
-    //i2c_write(0x0002, count);
-	// get mode select
-	data = i2c_read(0x0100);
-	data;
-    count++;
+  nrf_delay_ms(1000);
+#if I2C_PROT_EN == 1      
+   //i2c_write(0x0002, count);
+   // get mode select
+   data = i2c_read(0x0100);
+   data;
+   count++;
 #endif /* I2C_PROT_EN == 1 */
 #if SPIM_PROT_EN == 1
     err = spi_test();
 #endif /* SPIM_PROT_EN == 1 */
-		//printf("Hello..\r\n");
-	}
+		
+  }
 }
 
 
