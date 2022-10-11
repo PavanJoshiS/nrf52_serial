@@ -64,20 +64,19 @@ int main(void)
     i2c_write(0x104, 0x1);
     data = i2c_read(0x100);
 
-	//hsync vsync
-	i2c_write(0x1014, 0x3);
-	data = i2c_read(0x1014);
+	  //hsync vsync
+	  i2c_write(0x1014, 0x3);
+	  data = i2c_read(0x1014);
     
-	//1 bit
-	i2c_write(0x310F, 0x80);
-	data = i2c_read(0x310F);
+	  //1 bit
+	  i2c_write(0x310F, 0x80);
+	  data = i2c_read(0x310F);
 
-	hm01b0_read_frame();
+	  hm01b0_read_frame();
 
     nrf_delay_ms(500);
   }
-
-
+  
 }
 
 
