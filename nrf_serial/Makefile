@@ -16,7 +16,8 @@ SRC_FILES += \
   printf.c \
   uart.c \
   spim.c \
-  i2c.c
+  i2c.c  \
+  hm0360.c
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 

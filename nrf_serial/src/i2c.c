@@ -2,10 +2,6 @@
 
 #if I2C_PROT_EN == 1
 
-#define DEVICE_ADDRESS (0x24)
-#define PIN_SCL        (29)
-#define PIN_SDA        (28)
-
 int i2c_init(void)
 {
 
