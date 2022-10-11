@@ -10,6 +10,7 @@
 #include "nrf_gpio.h"
 #include "printf.h"
 #include "uart.h"
+#include "hm0360.h"
 
 int i2c_init(void);
 void i2c_write(uint16_t addr, uint8_t data);
