@@ -2,14 +2,18 @@
 
 #if I2C_PROT_EN == 1
 
+#define DEVICE_ADDRESS (0x24)
+#define PIN_SCL        (3)
+#define PIN_SDA        (4)
+
 int i2c_init(void)
 {
 
 	NRF_TWIM0->PSEL.SCL = PIN_SCL;
 	NRF_TWIM0->PSEL.SDA = PIN_SDA;
 
-	NRF_P0->PIN_CNF[PIN_SCL] =  (GPIO_PIN_CNF_PULL_Pullup << GPIO_PIN_CNF_PULL_Pos);
-	NRF_P0->PIN_CNF[PIN_SDA] =  (GPIO_PIN_CNF_PULL_Pullup << GPIO_PIN_CNF_PULL_Pos);
+	//NRF_P0->PIN_CNF[PIN_SCL] =  (GPIO_PIN_CNF_PULL_Pullup << GPIO_PIN_CNF_PULL_Pos);
+	//NRF_P0->PIN_CNF[PIN_SDA] =  (GPIO_PIN_CNF_PULL_Pullup << GPIO_PIN_CNF_PULL_Pos);
 
 	NRF_TWIM0->ADDRESS = DEVICE_ADDRESS;
 	NRF_TWIM0->FREQUENCY = TWIM_FREQUENCY_FREQUENCY_K400 << TWIM_FREQUENCY_FREQUENCY_Pos;
@@ -28,7 +32,6 @@ void i2c_write(uint16_t addr, uint8_t data)
 	tx_buf[0] = (addr >> 8) & 0xFF;
 	/* Low address byte */
 	tx_buf[1] = addr & 0xFF;
-	// data
 	tx_buf[2] = data;
 	NRF_TWIM0->SHORTS = TWIM_SHORTS_LASTTX_STOP_Msk;
 

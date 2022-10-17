@@ -2,67 +2,71 @@
 
 #if SPIM_PROT_EN == 1
 
-#define NRFX_SPIM_SCK_PIN  4
-#define NRFX_SPIM_MOSI_PIN 28
-#define NRFX_SPIM_MISO_PIN 29
-#define NRFX_SPIM_SS_PIN   31
-
-int spi_init()
+static int gpiote_setup(unsigned int pin_hsync, unsigned int pin_hsync_inv)
 {
-	NRF_SPIM3->PSEL.CSN = NRFX_SPIM_SS_PIN;
-	NRF_SPIM3->PSEL.SCK = NRFX_SPIM_SCK_PIN;
-	NRF_SPIM3->PSEL.MOSI = NRFX_SPIM_MOSI_PIN;
-	NRF_SPIM3->PSEL.MISO = NRFX_SPIM_MISO_PIN;
-    
-    /* Full drive strength */
-	NRF_P0->PIN_CNF[NRFX_SPIM_SCK_PIN] |= (0x3 << 8);
-	NRF_P0->PIN_CNF[NRFX_SPIM_MOSI_PIN] |= (0x3 << 8);
+	/* This event happens when the hsync pin goes from Low to High */
+	NRF_GPIOTE->CONFIG[2] =
+		(GPIOTE_CONFIG_MODE_Event << 0) | (pin_hsync << 8) | (GPIOTE_CONFIG_POLARITY_LoToHi << 16);
+
+	/* This event happens when the hsync pin goes from High to Low */
+	NRF_GPIOTE->CONFIG[3] =
+		(GPIOTE_CONFIG_MODE_Event << 0) | (pin_hsync << 8) | (GPIOTE_CONFIG_POLARITY_HiToLo << 16);
+
+	/* This task inverts the hsync_inv pin */
+	NRF_GPIOTE->CONFIG[4] = (GPIOTE_CONFIG_MODE_Task << 0) | (pin_hsync_inv << 8) |
+				(GPIOTE_CONFIG_POLARITY_None << 16) | (GPIOTE_CONFIG_OUTINIT_Low << 20);
+
+	/* Connect the two together */
+	NRF_PPI->CH[3].EEP = (uint32_t)&NRF_GPIOTE->EVENTS_IN[2];
+	NRF_PPI->CH[3].TEP = (uint32_t)&NRF_GPIOTE->TASKS_CLR[4];
+
+	NRF_PPI->CH[4].EEP = (uint32_t)&NRF_GPIOTE->EVENTS_IN[3];
+	NRF_PPI->CH[4].TEP = (uint32_t)&NRF_GPIOTE->TASKS_SET[4];
+	NRF_PPI->CHENSET = PPI_CHEN_CH3_Msk | PPI_CHEN_CH4_Msk;
+	return 0;
+}
+
+int spi_init(unsigned int pin_hsync, unsigned int pin_hsync_inv, unsigned int pin_cs, unsigned int pin_clk,
+	     unsigned int pin_mosi)
+{
+	gpiote_setup(pin_hsync, pin_hsync_inv);
+
+	nrf_gpio_cfg_input(pin_cs, NRF_GPIO_PIN_NOPULL);
+	nrf_gpio_cfg_input(pin_clk, NRF_GPIO_PIN_NOPULL);
+	nrf_gpio_cfg_input(pin_mosi, NRF_GPIO_PIN_NOPULL);
+
+	NRF_SPIS1->PSEL.CSN = pin_cs;
+	NRF_SPIS1->PSEL.SCK = pin_clk;
+	NRF_SPIS1->PSEL.MOSI = pin_mosi;
 
 	/* Change the SPI mode here */
-	NRF_SPIM3->CONFIG = (SPI_CONFIG_CPHA_Trailing << SPI_CONFIG_CPHA_Pos) |
-			    (SPI_CONFIG_CPOL_ActiveLow << SPI_CONFIG_CPOL_Pos) |
-			    (SPI_CONFIG_ORDER_MsbFirst << SPI_CONFIG_ORDER_Pos);
+	NRF_SPIS1->CONFIG = (SPIS_CONFIG_CPHA_Trailing << SPIS_CONFIG_CPHA_Pos) |
+			    (SPIS_CONFIG_CPOL_ActiveHigh << SPIS_CONFIG_CPOL_Pos) |
+			    (SPIS_CONFIG_ORDER_MsbFirst << SPIS_CONFIG_ORDER_Pos);
 
-	NRF_SPIM3->IFTIMING.CSNDUR = 0xFF;
-
-	/* Change the frequency here */
-	NRF_SPIM3->FREQUENCY = SPIM_FREQUENCY_FREQUENCY_M4;
-
-	NRF_SPIM3->ENABLE = (SPIM_ENABLE_ENABLE_Enabled << 0);
-    
 	return 0;
 }
 
-int spi_transceive(uint8_t *tx_buf, uint8_t *rx_buf, unsigned int n_tx, unsigned n_rx)
+int spi_receive(uint8_t *rx_buf, unsigned int n_rx_max)
 {
+	NRF_SPIS1->ENABLE = (SPIS_ENABLE_ENABLE_Enabled << SPIS_ENABLE_ENABLE_Pos);
+
 	/* The SPI transaction will last for max(n_tx, n_rx) bytes */
-	NRF_SPIM3->TXD.MAXCNT = n_tx;
-	NRF_SPIM3->RXD.MAXCNT = n_rx;
+	NRF_SPIS1->TXD.MAXCNT = 0;
+	NRF_SPIS1->RXD.MAXCNT = n_rx_max;
 
-	NRF_SPIM3->TXD.PTR = (uint32_t)tx_buf;
-	NRF_SPIM3->RXD.PTR = (uint32_t)rx_buf;
-	NRF_SPIM3->EVENTS_END = 0;
-	/* Start the transaction */
-	NRF_SPIM3->TASKS_START = 1;
+	NRF_SPIS1->RXD.PTR = (uint32_t)rx_buf;
+
+	NRF_SPIS1->TASKS_RELEASE = 1;
+	NRF_SPIS1->EVENTS_END = 0;
+
 	/* Busy wait until it has finished */
-	while (NRF_SPIM3->EVENTS_END == 0) {
+	while (NRF_SPIS1->EVENTS_END == 0) {
 	};
-	NRF_SPIM3->EVENTS_END = 0;
+	NRF_SPIS1->EVENTS_END = 0;
+	NRF_SPIS1->ENABLE = (SPIS_ENABLE_ENABLE_Disabled << SPIS_ENABLE_ENABLE_Pos);
+
 	return 0;
 }
 
-static uint8_t rx_buf[64] = { 0 };
-static uint8_t tx_buf[64];
-
-int spi_test(void)
-{
-	/* Fill the TX buf with some data */
-	for (unsigned int i = 0; i < 64; i++)
-		tx_buf[i] = 64 - i;
-
-	spi_transceive(tx_buf, rx_buf, 64, 32);
-    //printf("Done..\r\n");
-	return 0;
-}
-
-#endif /* #ifdef SPIM_PROT_EN == 1 */
+#endif
