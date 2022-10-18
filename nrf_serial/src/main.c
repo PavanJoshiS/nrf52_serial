@@ -19,6 +19,8 @@ int main(void) {
 	// i2c initialisation
 	int err = i2c_init();
 
+    sw_reset();
+   
 	//hm0360 initialisation
 	hm0360_init();
 
@@ -38,7 +40,7 @@ int main(void) {
 	i2c_write(COMMAND_UPDATE, 0x1);
 
 	//Clock control register [3:2]pclk divider
-	i2c_write(PLL1CFG,0xC);
+	i2c_write(PLL1CFG,0xE);
 	data = i2c_read(PLL1CFG);
 
 	//hsync,vsync,pclk gating enable

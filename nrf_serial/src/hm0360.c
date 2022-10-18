@@ -37,6 +37,7 @@ void hm01b0_read_frame()
     *(frameBuffer + ui32Idx++) = rx_buf[i];
       i++;
     }
+    i = 0;
     // re-initialise the rx_buf
     memset(rx_buf,0,sizeof(rx_buf));
   }
